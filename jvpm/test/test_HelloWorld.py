@@ -10,5 +10,7 @@ class TestHelloWorld(unittest.TestCase):
         sys.stdout.assert_has_calls(
             [call.write('Hello World'), call.write('\n'),
 			call.write('Hello Robb'), call.write('\n'),
-			call.write('Hello Justin'), call.write('\n')]
+			call.write('Hello Justin'), call.write('\n'),
+            call.write('\n'), call.write('Hello Megan'), call.write('\n')]
+
         )
