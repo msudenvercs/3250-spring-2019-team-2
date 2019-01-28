@@ -8,5 +8,7 @@ class TestHelloWorld(unittest.TestCase):
         sys.stdout = unittest.mock.Mock()
         jvpm.HelloWorld.HelloWorld()
         sys.stdout.assert_has_calls(
-            [call.write('Hello World'), call.write('\n'), call.write('Hello Robb'), call.write('\n')]
+            [call.write('Hello World'), call.write('\n'),
+			call.write('Hello Robb'), call.write('\n'),
+			call.write('Hello Justin'), call.write('\n')]
         )
