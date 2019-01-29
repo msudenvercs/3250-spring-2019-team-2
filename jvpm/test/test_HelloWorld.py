@@ -1,6 +1,6 @@
 import unittest
 import sys
-import jvpm.HelloWorld
+import jvpm.HelloWorld # changed to absolute import, error has been fixed
 from unittest.mock import Mock, call
 
 class TestHelloWorld(unittest.TestCase):
