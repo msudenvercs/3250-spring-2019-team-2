@@ -14,5 +14,6 @@ class TestHelloWorld(unittest.TestCase):
              call.write('Hello Justin'), call.write('\n'),
              call.write('Hello John'), call.write('\n'),
              call.write('Hello Josh'), call.write('\n'),
-             call.write('Hello Calan'), call.write('\n')]
+             call.write('Hello Calan'), call.write('\n'),
+             call.write('Hello Riverz'), call.write('\n')]
         )
