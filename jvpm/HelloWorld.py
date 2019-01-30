@@ -7,6 +7,7 @@ def HelloWorld():
     print("Hello John")
     print("Hello Josh")
     print("Hello Calan")
+    print("Hello Riverz")
 	
 
 if '__main__' == __name__:
