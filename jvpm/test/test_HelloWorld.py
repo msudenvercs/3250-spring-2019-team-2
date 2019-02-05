@@ -1,19 +1,18 @@
 import unittest
-import sys
 import jvpm.HelloWorld  # changed to absolute import, error has been fixed
-from unittest.mock import Mock, call
+from unittest.mock import patch, call
 
 class TestHelloWorld(unittest.TestCase):
-    def test_HelloWorld(self):
-        sys.stdout = unittest.mock.Mock()
+    @patch('builtins.print')
+    def test_HelloWorld(self, mock_print):
         jvpm.HelloWorld.HelloWorld()
-        sys.stdout.assert_has_calls(
-            [call.write('Hello World'), call.write('\n'),
-             call.write('Hello Robb'), call.write('\n'),
-             call.write('Hello Megan'), call.write('\n'),
-             call.write('Hello Justin'), call.write('\n'),
-             call.write('Hello John'), call.write('\n'),
-             call.write('Hello Josh'), call.write('\n'),
-             call.write('Hello Calan'), call.write('\n'),
-             call.write('Hello Riverz'), call.write('\n')]
-        )
+        self.assertEqual(mock_print.mock_calls, [
+            call('Hello World'),
+            call('Hello Robb'),
+            call('Hello Megan'),
+            call('Hello Justin'),
+            call('Hello John'),
+            call('Hello Josh'),
+            call('Hello Calan'),
+            call('Hello Riverz')
+        ])
