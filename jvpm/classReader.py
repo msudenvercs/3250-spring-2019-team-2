@@ -9,6 +9,7 @@ class ClassFile:
         with open('test.class', 'rb') as binary_file:
             self.data = binary_file.read()
 
+    # added print statmentes for visualizing the bytecode
     def get_magic(self):
         magic = ""
         for i in range(4):
