@@ -14,15 +14,12 @@ class ClassFile:
         magic = ""
         for i in range(4):
             magic += format(self.data[i], '02X')
-        print(magic)
         return magic
 
     def get_minor(self):
-        print(self.data[4] + self.data[5])
         return self.data[4] + self.data[5]
 
     def get_major(self):
-        print(self.data[6] + self.data[7])
         return self.data[6] + self.data[7]
 
 
