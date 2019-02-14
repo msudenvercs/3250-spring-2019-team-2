@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import mock_open, patch
 
-# TODO OPcode unittest and reading methods
+# TODO OP-code unittest and reading methods
 
 
 class ClassFile:
@@ -22,10 +22,13 @@ class ClassFile:
     def get_major(self):
         return self.data[6] + self.data[7]
 
+    def get_constant_pool_count(self):
+        return self.data[8] + self.data[9]
+
 
 class TestClassFile(unittest.TestCase):
     def setUp(self):
-        m = mock_open(read_data=b'\xCA\xFE\xBA\xBE\x00\x01\x02\x03')
+        m = mock_open(read_data=b'\xCA\xFE\xBA\xBE\x00\x01\x02\x03\x04\x05')
         with patch(__name__ + '.open', m):
             self.cf = ClassFile()
 
@@ -37,6 +40,9 @@ class TestClassFile(unittest.TestCase):
 
     def test_major(self):
         self.assertEqual(self.cf.get_major(), 5)
+
+    def test_constant_pool_count(self):
+        self.assertEqual(self.cf.get_constant_pool_count(), 9)
 
 
 if __name__ == '__main__':
